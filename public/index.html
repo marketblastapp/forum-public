@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forum Publik</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forum Publik</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>💬 Forum Publik</h1>
-    <button id="toggle-theme">🌙</button>
-  </header>
+<header>
+  <h1>💬 Forum Publik</h1>
+  <button id="toggle-theme">🌙</button>
+</header>
 
-  <main>
-    <div id="messages"></div>
+<main>
+  <div id="messages"></div>
 
-    <div class="input-container">
-      <input id="username" placeholder="Nama" />
-      <textarea id="content" placeholder="Tulis pesan..."></textarea>
-      <button onclick="sendMessage()">Kirim</button>
+  <div class="input-container">
+    <input id="username" placeholder="Nama" />
+    <textarea id="content" placeholder="Tulis pesan..."></textarea>
+    <div class="emoji-picker" id="emoji-picker">
+      <!-- Emoji akan dimuat lewat JS -->
     </div>
-  </main>
+    <button id="emoji-btn">😊</button>
+    <button onclick="sendMessage()">Kirim</button>
+  </div>
+</main>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
