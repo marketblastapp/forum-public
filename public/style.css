@@ -118,3 +118,37 @@ body.dark button:hover { background:#1e5cd1; }
 
 /* Responsive */
 @media(max-width:500px) { #messages { height:300px; } }
+
+/* Emoji Picker */
+.emoji-picker {
+  display:none;
+  border:1px solid #ccc;
+  border-radius:8px;
+  background:#fff;
+  padding:5px;
+  max-width:300px;
+  flex-wrap: wrap;
+  margin-bottom:10px;
+}
+
+.emoji-picker span {
+  cursor:pointer;
+  font-size:20px;
+  margin:2px;
+}
+
+.message-reactions {
+  margin-top:5px;
+}
+
+.message-reactions span {
+  cursor:pointer;
+  margin-right:5px;
+  font-size:16px;
+}
+
+/* Show emoji picker */
+.emoji-picker.show {
+  display:flex;
+}
+
