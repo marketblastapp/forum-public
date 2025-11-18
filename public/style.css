@@ -1,96 +1,120 @@
 /* Reset dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f2f2f7;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  transition: background 0.3s, color 0.3s;
 }
 
 header {
   background-color: #4e73df;
   color: white;
   padding: 20px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
+  position: relative;
+}
+
+header button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  width: 100%;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+  max-width:600px;
+  margin:auto;
+  width:100%;
 }
 
 #messages {
-  background: #fff;
-  padding: 15px;
-  height: 400px;
+  background:#fff;
+  padding:15px;
+  height:400px;
   overflow-y: scroll;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius:10px;
+  margin-bottom:15px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
 }
 
 /* Bubble chat */
 #messages p {
-  background: #e0e0e0;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:10px;
   word-wrap: break-word;
+  max-width:80%;
+  clear: both;
+  opacity:0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards;
 }
 
-#messages p strong {
-  color: #4e73df;
+#messages p.user {
+  background:#cce5ff; 
+  color:#004085;
+  margin-left:auto;
+  text-align:right;
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
+#messages p.other {
+  background:#e0e0e0;
+  color:#333;
+  margin-right:auto;
+  text-align:left;
 }
+
+.input-container { display:flex; flex-direction:column; }
 
 input, textarea {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
 }
 
-textarea {
-  resize: none;
-  height: 80px;
-}
+textarea { resize:none; height:80px; }
 
 button {
-  background-color: #4e73df;
-  color: white;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background-color:#4e73df;
+  color:white;
+  padding:12px;
+  font-size:16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
   transition: background 0.3s;
 }
 
-button:hover {
-  background-color: #2e59d9;
+button:hover { background-color:#2e59d9; }
+
+/* Animasi fade in */
+@keyframes fadeIn {
+  to { opacity:1; transform:translateY(0); }
 }
 
+/* Dark Mode */
+body.dark { background:#121212; color:white; }
+body.dark #messages { background:#1e1e1e; color:white; }
+body.dark #messages p.user { background:#3a76f0; color:white; }
+body.dark #messages p.other { background:#333; color:white; }
+body.dark input, body.dark textarea { background:#333; color:white; border:1px solid #555; }
+body.dark button { background:#3a76f0; }
+body.dark button:hover { background:#1e5cd1; }
+
 /* Responsive */
-@media(max-width: 500px){
-  #messages {
-    height: 300px;
-  }
-}
+@media(max-width:500px) { #messages { height:300px; } }
